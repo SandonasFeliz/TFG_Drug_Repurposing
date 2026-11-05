@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Your data{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Upload your data</h2>
+  <p>Provide the three files below. Accepted formats: .csv, .tsv or .json.</p>
+
+  <form method="post" action="/configuration/own-data" enctype="multipart/form-data">
+    <div class="drop-grid">
+
+      <label class="drop-zone">
+        <input type="file" name="disease_genes" accept=".csv,.tsv,.json" required>
+        <span class="drop-icon">⬆</span>
+        <strong>Disease–gene associations</strong>
+        <small>Which genes are linked to each disease</small>
+        <span class="file-name">Drop a file here or click to browse</span>
+      </label>
+
+      <label class="drop-zone">
+        <input type="file" name="drug_targets" accept=".csv,.tsv,.json" required>
+        <span class="drop-icon">⬆</span>
+        <strong>Drug targets</strong>
+        <small>Which proteins each drug acts on</small>
+        <span class="file-name">Drop a file here or click to browse</span>
+      </label>
+
+      <label class="drop-zone">
+        <input type="file" name="ppi_network" accept=".csv,.tsv,.json" required>
+        <span class="drop-icon">⬆</span>
+        <strong>Protein interaction network </strong>
+        <small>Pairs of interacting proteins</small>
+        <span class="file-name">Drop a file here or click to browse</span>
+      </label>
+
+    </div>
+
+    <div class="row">
+      <button class="btn-dark" type="submit">Continue</button>
+    </div>
+  </form>
+
+  <p><a href="/configuration">&larr; Back</a></p>
+</section>
+
+<script>
+  // Show the chosen file name inside each box
+  document.querySelectorAll(".drop-zone input").forEach(function (input) {
+    input.addEventListener("change", function () {
+      var label = input.closest(".drop-zone");
+      var name = label.querySelector(".file-name");
+      if (input.files.length) {
+        name.textContent = input.files[0].name;
+        label.classList.add("has-file");
+      } else {
+        name.textContent = "Drop a file here or click to browse";
+        label.classList.remove("has-file");
+      }
+    });
+  });
+</script>
+{% endblock %}

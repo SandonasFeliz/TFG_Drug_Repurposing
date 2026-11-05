@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Analysis setup{% endblock %}
+{% block content %}
+<section class="card">
+  <h2>Analysis setup</h2>
+  <p>Do you want to use your own data?</p>
+  <p class="note">If you choose "No", the default DISNET data will be used.</p>
+  <div class="row">
+    <a class="btn-dark" href="/configuration/own-data">Yes</a>
+    <a class="btn-dark" href="/configuration/disease">No</a>
+  </div>
+  <p><a href="/">&larr; Back to the start page</a></p>
+</section>
+{% endblock %}

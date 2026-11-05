@@ -87,11 +87,11 @@ Default data: [DISNET](https://disnet.ctb.upm.es/) and other public sources. Ple
 
 ## Author
 
-- Author: [Your name]
-- Supervisor: [Supervisor name]
-- University: [University and degree]
+- Author: 
+- Supervisor:
+- University: 
 - Academic year: 2026
 
 ## License
 
-[To be decided]
+MIT License
